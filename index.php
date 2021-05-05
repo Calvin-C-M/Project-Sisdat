@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles/main.css">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,10 +13,12 @@
         <title>Main Menu</title>
     </head>
     <body>
-        <nav>
+        <button id='open-button'><img src="img/decor/open_button.jpg" width="40px" height="40px"></button>
+        <nav id='navbar' style='display: none'>
+            <button id='close-button'><img src="img/decor/close_button.png" width="30px" height="30px"></button>
             <ul>
                 <li>
-                    Tentang Kami
+                <a href="">Tentang Kami</a>
                     <ul>
                         <li><a href="#">Logo</a></li>
                         <li><a href="#">Visi dan Misi</a></li>
@@ -36,23 +38,26 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="setting.php">Setting</a>
+                    <!-- <button id='setting'>Setting</button> -->
+                    <a id='setting' href="verif.php">Setting</a>
                 </li>
             </ul>
         </nav>
 
-        <header>
-            <h1>Cipta Cerita</h1>
-        </header>
+        <main id='main-section'>
+            <header>
+                <h1>Cipta Cerita</h1>
+            </header>
 
-        <section>
-            <h3>Tentang Kami</h3>
-
-        </section>
+            <article>
+                <h3>Tentang Kami</h3>
+            </article>
+        </main>
 
         <footer>
-            <p>Created by Kelompok 12 Sistem Database</p>
-            <p>2021</p>
+                <p>Created by Kelompok 12 Sistem Database</p>
+                <p>2021</p>
         </footer>
+        <script src='scripts/main.js'></script>
     </body>
 </html>
