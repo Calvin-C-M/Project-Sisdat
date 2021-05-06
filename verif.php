@@ -1,5 +1,22 @@
-<?php 
+<?php
     require "func.php";
+
+    if(isset($_POST["submit"])){
+        if(admin()){
+            echo "
+                <script>
+                    document.location.href = 'setting.php';
+                </script>
+            ";
+        }
+        else{
+            echo "
+                <script>
+                    alert('Username/Password salah!');
+                </script>
+            ";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -12,20 +29,24 @@
         <title>Verifikasi</title>
     </head>
     <body>
-        <form id='login' action="setting.php" method='post'>
-            <header>
+        <div id='login-form'>
+            <header id='form-header'>
                 Login Admin
             </header>
 
-            <label for="username">Username:
-                <input name='username' type="text">
-            </label>
-            <br>
-            <label for="password">Password:
-                <input name='password' type="password">
-            </label>
-            <br>
-            <button type='submit' name='submit'>Submit</button>
-        </form>
+            <form id='login' action="verif.php" method='post'>
+                <label for="username">Username:
+                    <input class='login-input' name='username' type="text">
+                </label>
+                <br>
+                <label for="password">Password  :
+                    <input class='login-input' name='password' type="password">
+                </label>
+                <br>
+                <button type='submit' name='submit'>Login</button>
+            </form>
+
+            <a id='back-button' href="index.php">&lt&lt Home</a>
+        </div>
     </body>
 </html>

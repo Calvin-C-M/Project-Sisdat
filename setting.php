@@ -1,21 +1,5 @@
 <?php
-    require "func.php";
-
-    $akunAdmin = read("SELECT * FROM admin");
-    
-    function admin(){
-        global $akunAdmin;
-        foreach($akunAdmin as $akun){
-            if(
-                $_POST['username'] === $akun['username']
-                &&
-                $_POST['password'] === $akun['password']
-            ){
-                return true;
-            }
-        }
-        return false;
-    }
+    require "func.php";  
 ?>
 
 <!DOCTYPE html>
@@ -27,13 +11,7 @@
         <title>Setting</title>
     </head>
     <body>
-        <?php if(admin()) : ?>
-            <p>Anda Admin</p>
-            <a href="verif.php"><button>Kembali</button></a>
-        <?php else : ?>
-            <p>Anda bukan Admin</p>
-            <a href="verif.php"><button>Kembali</button></a>
-        <?php endif; ?>
+        
     </body>
     <script src='setting.js'></script>
 </html>
