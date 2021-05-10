@@ -6,6 +6,13 @@
 * Deani Puteri Virdiana (140810200059)
 
 ## Update Log
-Log 0.1
-* Update login logic
-* Update UI Menu Verifikasi
+Log 0.2
+* Ditambahkan tabel "komponen"
+* Ditambahkan logic masuk ke halaman "tentang kami"
+* Update halaman setting
+* Update halaman index
+* Ditambahkan logic masuk ke halaman departemen
+* Update halaman departemen
+* Update function file
+* Update Menu Visi Misi
+* Ditambahkan Menu Logo, Visi Misi, Ketua dan Wakil Ketua

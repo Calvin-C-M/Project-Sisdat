@@ -8,11 +8,23 @@
 
         $rows = [];
 
-        while($dept = mysqli_fetch_assoc($result)){
-            $rows[] = $dept;
+        while($data = mysqli_fetch_assoc($result)){
+            $rows[] = $data;
         }
 
         return $rows;
+    }
+
+    function tambah($query){
+
+    }
+
+    function hapus($query){
+
+    }
+
+    function edit($query){
+        
     }
 ?>
 
@@ -30,4 +42,9 @@
         }
         return false;
     }
+?>
+
+<?php
+    $departemen = read("SELECT * FROM departemen");
+
 ?>
