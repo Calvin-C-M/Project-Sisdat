@@ -1,34 +1,38 @@
+<?php
+    require "../func.php";
+    $id = $_GET["id_dept"];
+    $dep = read("SELECT * FROM departemen WHERE id_dept=$id")[0];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tambah Departemen</title>
-        <link rel="stylesheet" href="../styles/tambah_dept.css">
+        <title><?php echo $dep["nama"]; ?></title>
     </head>
     <body>
         <header>
-            <h2>Tambah Departemen</h2>
+            <h2>Edit Departemen</h2>
         </header>
-        <form action="" method="post" id='tambah-form'>
-            <label for="">ID Departemen:
-                <input type="number">
-            </label>
-            <br>
+        <form action="">
             <label for="">Nama:
-                <input type="text">
+                <input type="text" value='<?php echo $dep["nama"]; ?>'>
             </label>
             <br>
             <label for="">Singkatan:
-                <input type="text">
+                <input type="text" value='<?php echo $dep["singkatan"]; ?>'>
             </label>
             <br>
-            <label for="">Logo:
+            <label for="">Foto:
                 <input type="file">
             </label>
             <br>
             <input name='submit' type="submit" value="Submit">
-        </form>
+        </form>  
+        <a href="../setting.php">
+                <button>Back</button>
+        </a>
     </body>
 </html>

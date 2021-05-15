@@ -4,7 +4,6 @@ nav{
     top: 0;
     left: 0;
     bottom: 0;
-    z-index: 0;
     line-height: 30px;
     overflow: scroll;
 }
@@ -14,24 +13,57 @@ nav{
     margin-top: 30px;
 }
 
-#home{
-    float: left;
-}
+#home{ float: left; }
 
-#menus{
-    margin-top: 100px;
-}
+#menus{ margin-top: 100px; }
 
 nav a{
     display: block;
     text-decoration: none;
 }
 
+#open-button{ 
+    position: fixed; 
+    background-color: transparent;
+    border: none;
+}
+
+#open-button:hover{
+    animation-name: open-button-hover;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+
 #open-button{
-    position: fixed;
+    animation-name: open-button-reverse;
+    animation-duration: 500ms;
+}
+
+@keyframes open-button-hover{
+    from{
+        transform: translate(0, 0);
+    }
+    to{
+        transform: translate(1px, -3px);
+    }
+}
+
+@keyframes open-button-reverse{
+    from{
+        transform: translate(1px, -3px);
+    }
+    to{
+        transform: translate(0,0);
+    }
+}
+
+#open-button:active{
+    transform: translateY(3px);
 }
 
 #close-button{
     position: unset;
+    background-color: transparent;
+    border: none;
     margin-left: 60px;
 }

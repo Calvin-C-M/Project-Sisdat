@@ -20,7 +20,7 @@
         <title>Ketua dan Wakil Ketua</title>
     </head>
     <body>
-        <button id='open-button'><img src="../img/decor/open_button.jpg" width="40px" height="40px"></button>
+        <button id='open-button'><img src="../img/decor/open_button.png" width="40px" height="40px"></button>
         <nav id='navbar' style='display: none'>
             <button id='close-button'><img src="../img/decor/close_button.png" width="30px" height="30px"></button>
             <div id='title-nav'>
@@ -49,7 +49,7 @@
                                     }
                                 ?>
                                 <li>
-                                    <a href="departemen.php?id_dept=<?php echo $dept["id_dept"]; ?>">
+                                    <a href="../departemen.php?id_dept=<?php echo $dept["id_dept"]; ?>">
                                         <?php echo $dept["nama"] ?>
                                     </a>
                                 </li>

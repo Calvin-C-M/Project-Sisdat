@@ -1,28 +1,40 @@
 const tableData = document.getElementsByClassName('table-data');
 const menuButton = document.getElementsByClassName('menu-button');
 
-function isOpen(index){
-    for(let i = 0; i < menuButton.length; i++){
+const dataPimpinanDepartemen = document.getElementsByClassName('departement-buat-pimpinan');
+const showPimpinanDepartemenButton = document.getElementsByClassName('show-departemen-pimpinan');
+
+const dataStaffDepartemen = document.getElementsByClassName('departement-buat-staff');
+const showStaffDepartemenButton = document.getElementsByClassName('show-departemen-staff');
+
+function anyDataOpen(index, dataArray, buttonArray){
+    for(let i = 0; i < buttonArray.length; i++){
         if(i === index){ continue; }
-        if(tableData[i].style.display === 'block'){ return true; }
+        if(dataArray[i].style.display === 'block'){ return true; }
     }
     return false;
 }
 
-function closeAll(){
-    for(let i = 0; i < tableData.length; i++){ 
-        tableData[i].style.display = 'none'; 
+function closeAll(dataArray){
+    for(let i = 0; i < dataArray.length; i++){ 
+        dataArray[i].style.display = 'none'; 
     }
 }
 
-for(let i = 0; i < menuButton.length; i++){
-    menuButton[i].addEventListener('click', function(){
-        if(tableData[i].style.display === 'none'){
-            if(isOpen(i)){ closeAll(); }
-            tableData[i].style.display = 'block';
-        }
-        else{
-            tableData[i].style.display = 'none';
-        }
-    });
+function click_on_setting_buttons(dataArray, buttonArray){
+    for(let i = 0; i < buttonArray.length; i++){
+        buttonArray[i].addEventListener('click', function(){
+            if(dataArray[i].style.display === 'none'){
+                if(anyDataOpen(i, dataArray, buttonArray)){ closeAll(dataArray); }
+                dataArray[i].style.display = 'block';
+            }
+            else{
+                dataArray[i].style.display = 'none';
+            }
+        });
+    }
 }
+
+click_on_setting_buttons(tableData, menuButton);
+click_on_setting_buttons(dataPimpinanDepartemen, showPimpinanDepartemenButton);
+click_on_setting_buttons(dataStaffDepartemen, showStaffDepartemenButton);

@@ -1,22 +1,16 @@
 <?php
     require "func.php";
-    $id= $_GET["id_dept"];
-    $dep = read("SELECT * FROM departemen WHERE id_dept=$id")[0];
-    $mimpinDep = read("SELECT * FROM pimpinan WHERE dept=$id")[0];
-    $staffDep = read("SELECT * FROM staff WHERE dept=$id");
-    $prokerDep = read("SELECT * FROM proker WHERE dept=$id");
-    $i = 1;
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="styles/navigation.css">
-    <link rel="stylesheet" href="styles/dept.css">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $dep["nama"]; ?></title>
+        <title>Tentang <?php echo $organisasi["nama"]; ?></title>
+        <link rel="stylesheet" href="styles/navigation.css">
+        <link rel="stylesheet" href="styles/menu_kami.css">
     </head>
     <body>
         <button id='open-button'>
@@ -41,7 +35,9 @@
                         </ul>
                     </li>
                     <li>
-                        Departemen
+                        <a href="menu_departemen.php">
+                            Departemen
+                        </a>
                         <ul>
                             <?php foreach($departemen as $dept) : ?>
                                 <?php
@@ -69,47 +65,27 @@
                 <h1>
                     <?php echo $organisasi["nama"]; ?>
                 </h1>
-                <h2>
-                    <?php echo $dep["nama"]; ?>
-                </h2>
             </header>
 
-            <section id='pimpinan'>
-                <h4>
-                    <?php echo $mimpinDep["jabatan"]; ?>
-                </h4>
-                <div id=''>
-                    <img src="img/pengurus/<?php echo $mimpinDep["foto"]; ?>" width="180" height="240">
-                    <p><?php echo $mimpinDep["nama"]; ?></p>
-                    <p><?php echo $mimpinDep["npm"]; ?></p>
-                </div>
-            </section>
+            <div id='visi-menu'>
+                <a href="Tentang-Kami/vismis.php">
+                    <button>Visi & Misi</button>
+                </a>
+            </div>
 
-            <section id='list-staff'>
-                <h4>Staff</h4>
-                <?php foreach($staffDep as $staff) : ?>
-                    <div class='staffs' id='staff-<?php echo $i++; ?>'>
-                        <img src="img/pengurus/<?php echo $staff["foto"]; ?>" width="180" height="240">
-                        <p><?php echo $staff["nama"]; ?></p>
-                        <p><?php echo $staff["npm"]; ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </section>
+            <div id='ketua-menu'>
+                <a href="Tentang-Kami/ketua.php">
+                    <button>Ketua & Wakil Ketua</button>
+                </a>
+            </div>
 
-            <section id='proker'>
-                <h4>Program Kerja</h4>
-                <ol>
-                    <?php foreach($prokerDep as $proker) : ?>
-                        <li><?php echo $proker["nama"]; ?></li>
-                    <?php endforeach; ?>
-                </ol>
-            </section>
-
-            <!-- <?php 
-                var_dump($mimpinDep);
-                var_dump($staffDep);
-            ?> -->
+            <div id='logo-menu'>
+                <a href="Tentang-Kami/logo.php">
+                    <button>Logo</button>
+                </a>
+            </div>
         </main>
+
         <script src="scripts/navigation.js"></script>
     </body>
 </html>

@@ -1,22 +1,17 @@
 <?php
     require "func.php";
-    $id= $_GET["id_dept"];
-    $dep = read("SELECT * FROM departemen WHERE id_dept=$id")[0];
-    $mimpinDep = read("SELECT * FROM pimpinan WHERE dept=$id")[0];
-    $staffDep = read("SELECT * FROM staff WHERE dept=$id");
-    $prokerDep = read("SELECT * FROM proker WHERE dept=$id");
-    $i = 1;
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="styles/navigation.css">
-    <link rel="stylesheet" href="styles/dept.css">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><?php echo $dep["nama"]; ?></title>
+        <title>Departemen <?php $organisasi["nama"]; ?></title>
+        <link rel="stylesheet" href="styles/navigation.css">
+        <link rel="stylesheet" href="styles/menu_dept.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
     <body>
         <button id='open-button'>
@@ -41,7 +36,9 @@
                         </ul>
                     </li>
                     <li>
-                        Departemen
+                        <a href="menu_departemen.php">
+                            Departemen
+                        </a>
                         <ul>
                             <?php foreach($departemen as $dept) : ?>
                                 <?php
@@ -64,52 +61,28 @@
             </div>
         </nav>
 
-        <main id='main-section' style='margin-left: 65px'>
+        <main id='main-section' style='margin-left: 65px;'>
             <header>
                 <h1>
                     <?php echo $organisasi["nama"]; ?>
                 </h1>
-                <h2>
-                    <?php echo $dep["nama"]; ?>
-                </h2>
             </header>
 
-            <section id='pimpinan'>
-                <h4>
-                    <?php echo $mimpinDep["jabatan"]; ?>
-                </h4>
-                <div id=''>
-                    <img src="img/pengurus/<?php echo $mimpinDep["foto"]; ?>" width="180" height="240">
-                    <p><?php echo $mimpinDep["nama"]; ?></p>
-                    <p><?php echo $mimpinDep["npm"]; ?></p>
+            <?php foreach($departemen as $dept) : ?>
+                <?php
+                    if($dept["id_dept"] <= 0){
+                        continue;
+                    }
+                ?>
+                <div class='menu-departemen-buttons' id='dept-<?php echo $dept["nama"]; ?>'>
+                    <a href="departemen.php?id_dept=<?php echo $dept["id_dept"]; ?>">
+                        <img src="img/logo/<?php echo $dept["logo"]; ?>" alt="Logo <?php echo $dept["nama"]; ?>" width="100" height="100">
+                    </a>
+                    <h4><?php echo $dept["nama"]; ?></h4>
                 </div>
-            </section>
-
-            <section id='list-staff'>
-                <h4>Staff</h4>
-                <?php foreach($staffDep as $staff) : ?>
-                    <div class='staffs' id='staff-<?php echo $i++; ?>'>
-                        <img src="img/pengurus/<?php echo $staff["foto"]; ?>" width="180" height="240">
-                        <p><?php echo $staff["nama"]; ?></p>
-                        <p><?php echo $staff["npm"]; ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </section>
-
-            <section id='proker'>
-                <h4>Program Kerja</h4>
-                <ol>
-                    <?php foreach($prokerDep as $proker) : ?>
-                        <li><?php echo $proker["nama"]; ?></li>
-                    <?php endforeach; ?>
-                </ol>
-            </section>
-
-            <!-- <?php 
-                var_dump($mimpinDep);
-                var_dump($staffDep);
-            ?> -->
+            <?php endforeach; ?>
         </main>
+
         <script src="scripts/navigation.js"></script>
     </body>
 </html>

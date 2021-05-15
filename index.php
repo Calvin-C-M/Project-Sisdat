@@ -1,6 +1,5 @@
 <?php
     require "func.php";
-    $organisasi = read("SELECT * FROM komponen")[0];
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +13,13 @@
         <title>Main Menu</title>
     </head>
     <body>
-        <button id='open-button'><img src="img/decor/open_button.jpg" width="40px" height="40px"></button>
+        <button id='open-button'>
+            <img src="img/decor/open_button.png" width="40px" height="40px">
+        </button>
         <nav id='navbar' style='display: none'>
-            <button id='close-button'><img src="img/decor/close_button.png" width="30px" height="30px"></button>
+            <button id='close-button'>
+                <img src="img/decor/close_button.png" width="40px" height="40px">
+            </button>
             <div id='title-nav'>
                 <a id='home' href="index.php">
                     <img src="img/logo/<?php echo $organisasi["logo"]; ?>" width="80px" height='80px'>
@@ -26,7 +29,7 @@
             <div id='menus'>
                 <ul>
                     <li>
-                    <a href="">Tentang Kami</a>
+                    <a href="menu_tentang_kami.php">Tentang Kami</a>
                         <ul>
                             <li><a href="Tentang-Kami/logo.php">Logo</a></li>
                             <li><a href="Tentang-Kami/vismis.php">Visi dan Misi</a></li>
@@ -34,7 +37,9 @@
                         </ul>
                     </li>
                     <li>
-                        Departemen
+                        <a href="menu_departemen.php">
+                            Departemen
+                        </a>
                         <ul>
                             <?php foreach($departemen as $dept) : ?>
                                 <?php
@@ -64,9 +69,19 @@
                 </h1>
             </header>
 
-            <article>
-                <h3>Tentang Kami</h3>
-            </article>
+            <div class='main-nav' id='tentang-kami-div'>
+                <a href="menu_tentang_kami.php">
+                    <button>Tentang Kami</button>
+                </a>
+            </div>
+
+            <div class='main-nav' id='departemen-nav'>
+                <a href="menu_departemen.php">
+                    <button>Departemen</button>
+                </a>
+            </div>
+
+            <img id='logo-main-section' src="img/logo/<?php echo $organisasi["logo"]; ?>" alt="Logo <?php echo $organisasi["nama"]; ?>" width="100" height="100">
         </main>
 
         <footer>
