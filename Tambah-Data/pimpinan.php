@@ -1,3 +1,31 @@
+<?php
+    require "../func.php";
+
+    if(isset($_POST["submit"])){
+        if(tambah_pimpinan($_POST)){
+            $filename = $_FILES['foto']['name'];
+            $tempname = $_FILES['foto']['tmp_name'];
+            $folder = "../img/pengurus/".$filename;
+
+            if(move_uploaded_file($tempname, $folder)){
+                echo "
+                    <script>
+                        alert('Data berhasil ditambahkan');
+                        document.location.href = '../setting.php';
+                    </script>
+                ";
+            }
+            else{
+                echo "
+                    <script>
+                        alert('Data tidak dapat ditambahkan');
+                    </script>
+                ";
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,24 +38,34 @@
         <header>
             <h2>Tambah Pimpinan</h2>
         </header>
-        <form action="" method='post'>
-            <label for="">Nama:
-                <input type="text">
+        <form action="pimpinan.php" method='post' enctype="multipart/form-data">
+            <label for="nama">Nama:
+                <input name='nama' type="text">
             </label>
             <br>
-            <label for="">NPM:
-                <input type="text">
+            <label for="npm">NPM:
+                <input name='npm' type="text">
             </label>
             <br>
-            <label for="">Departemen:
-                <input type="text">
+            <label for="dept">Departemen:
+                <select name="dept" id="">
+                    <?php foreach($departemen as $dept) : ?>
+                        <option value="<?php echo $dept['id_dept']; ?>">
+                            <?php echo $dept["nama"]; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
             </label>
             <br>
-            <label for="">Foto:
-                <input type="file">
+            <label for="foto">Foto:
+                <input name='foto' type="file">
             </label>    
             <br>
             <input name='submit' type="submit" value="Submit">
         </form>
+        
+        <a href="../setting.php">
+            <button>Kembali</button>
+        </a>
     </body>
 </html>

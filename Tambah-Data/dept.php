@@ -1,3 +1,32 @@
+<?php
+    require "../func.php";
+
+    if(isset($_POST["submit"])){
+        if(tambah_departemen($_POST) > 0){
+            $filename = $_FILES["logo"]["name"];
+            $tempname = $_FILES["logo"]["tmp_name"];
+            $folder = "../img/logo/".$filename;
+            
+            if(move_uploaded_file($tempname, $folder)){
+                echo "
+                    <script>
+                        alert('Data berhasil ditambahkan');
+                        document.location.href = '../setting.php';
+                    </script>
+                ";
+            }
+            else{
+                echo "
+                    <script>
+                        alert('Data tidak dapat ditambahkan');
+                    </script>
+                ";
+            }
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,24 +40,28 @@
         <header>
             <h2>Tambah Departemen</h2>
         </header>
-        <form action="" method="post" id='tambah-form'>
-            <label for="">ID Departemen:
-                <input type="number">
+        <form  id='tambah-form' action="dept.php" method="POST" enctype="multipart/form-data">
+            <label for="id_dept">ID Departemen:
+                <input name='id_dept' type="number">
             </label>
             <br>
-            <label for="">Nama:
-                <input type="text">
+            <label for="nama">Nama:
+                <input name='nama' type="text">
             </label>
             <br>
-            <label for="">Singkatan:
-                <input type="text">
+            <label for="singkatan">Singkatan:
+                <input name="singkatan" type="text">
             </label>
             <br>
-            <label for="">Logo:
-                <input type="file">
+            <label for="logo">Logo:
+                <input name='logo' type="file">
             </label>
             <br>
             <input name='submit' type="submit" value="Submit">
         </form>
+
+        <a href="../setting.php">
+            <button>Kembali</button>
+        </a>
     </body>
 </html>

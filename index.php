@@ -12,9 +12,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Main Menu</title>
     </head>
-    <body>
+    <body style="background-image:url('img/decor/background-1.jpg'); background-size: cover;">
         <button id='open-button'>
-            <img src="img/decor/open_button.png" width="40px" height="40px">
+            <img id='logo-open-button' src="img/decor/open_button_white.png" width="40px" height="40px">
         </button>
         <nav id='navbar' style='display: none'>
             <button id='close-button'>
@@ -62,32 +62,38 @@
             </div>
         </nav>
 
-        <main id='main-section' style='margin-left: 65px;'>
+        <main id='main-section' style="margin-left: 65px;">
             <header>
                 <h1>
                     <?php echo $organisasi["nama"]; ?>
                 </h1>
             </header>
 
-            <div class='main-nav' id='tentang-kami-div'>
-                <a href="menu_tentang_kami.php">
-                    <button>Tentang Kami</button>
-                </a>
+            <div id='main-content'>
+                <div class='content' id='tentang-kami-div'>
+                    <a class='content-button' href="menu_tentang_kami.php">
+                        <button class='nav-button'>Tentang Kami</button>
+                    </a>
+                </div>
+                
+                <div class='content'>
+                    <img id='logo-main-section' src="img/logo/<?php echo $organisasi["logo"]; ?>" alt="Logo <?php echo $organisasi["nama"]; ?>" width="500" height="500">
+                </div>
+
+                <div class='content' id='departemen-nav'>
+                    <a class='content-button' href="menu_departemen.php">
+                        <button class='nav-button'>Departemen</button>
+                    </a>
+                </div>
+
             </div>
 
-            <div class='main-nav' id='departemen-nav'>
-                <a href="menu_departemen.php">
-                    <button>Departemen</button>
-                </a>
-            </div>
-
-            <img id='logo-main-section' src="img/logo/<?php echo $organisasi["logo"]; ?>" alt="Logo <?php echo $organisasi["nama"]; ?>" width="100" height="100">
-        </main>
-
-        <footer>
+            <footer>
                 <p>Created by Kelompok 10 Sistem Database</p>
                 <p>2021</p>
-        </footer>
+            </footer>
+        </main>
+        
         <script src='scripts/navigation.js'></script>
     </body>
-</html>
+</html> 

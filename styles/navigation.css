@@ -26,6 +26,15 @@ nav a{
     position: fixed; 
     background-color: transparent;
     border: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#logo-open-button{
+    position: fixed;
+    top: 15px;
+    left: 15px;
 }
 
 #open-button:hover{
@@ -44,13 +53,13 @@ nav a{
         transform: translate(0, 0);
     }
     to{
-        transform: translate(1px, -3px);
+        transform: translate(3px, 0px);
     }
 }
 
 @keyframes open-button-reverse{
     from{
-        transform: translate(1px, -3px);
+        transform: translate(3px, 0px);
     }
     to{
         transform: translate(0,0);

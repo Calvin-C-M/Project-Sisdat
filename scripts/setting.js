@@ -7,6 +7,9 @@ const showPimpinanDepartemenButton = document.getElementsByClassName('show-depar
 const dataStaffDepartemen = document.getElementsByClassName('departement-buat-staff');
 const showStaffDepartemenButton = document.getElementsByClassName('show-departemen-staff');
 
+const dataProkerDepartemen = document.getElementsByClassName('departement-buat-proker');
+const showProkerDepartemenButton = document.getElementsByClassName('show-departemen-proker');
+
 function anyDataOpen(index, dataArray, buttonArray){
     for(let i = 0; i < buttonArray.length; i++){
         if(i === index){ continue; }
@@ -38,3 +41,4 @@ function click_on_setting_buttons(dataArray, buttonArray){
 click_on_setting_buttons(tableData, menuButton);
 click_on_setting_buttons(dataPimpinanDepartemen, showPimpinanDepartemenButton);
 click_on_setting_buttons(dataStaffDepartemen, showStaffDepartemenButton);
+click_on_setting_buttons(dataProkerDepartemen, showProkerDepartemenButton);

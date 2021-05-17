@@ -3,6 +3,19 @@
 
     $npm = $_GET["npm"];
     $pimpin = read("SELECT * FROM pimpinan WHERE npm='$npm';")[0];
+
+    if(isset($_POST["submit"])){
+        $oldData = $pimpin;
+        
+        if(edit_pimpinan($_POST, $oldData)){
+            $filename = $_FILES["foto"]["name"];
+            $tempname = $_FILES["foto"]['tmp_name'];
+            $folder = "../img/pengurus/".$filename;
+
+            echo return_to_setting($tempname, $folder, 'diubah');
+        }
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,20 +30,37 @@
         <header>
             <h2>Edit Pimpinan</h2>
         </header>
-        <form action="">
-            <label for="">Nama:
-                <input type="text" value='<?php echo $pimpin["nama"]; ?>'>
+        <form action="#" method='post' enctype="multipart/form-data">
+            <label for="npm">NPM:
+                <input name='npm' type="text" value='<?php echo $pimpin["npm"]; ?>'>
             </label>
             <br>
-            <label for="">Departemen:
-                <input type="text">
+            <label for="nama">Nama:
+                <input name='nama' type="text" value='<?php echo $pimpin["nama"]; ?>'>
             </label>
             <br>
-            <label for="">Foto:
-                <input type="file">
+            <label for="dept">Departemen:
+                <select name="dept" id="edit-departemen-pimpinan">
+                    <?php foreach($departemen as $dept) : ?>
+                        <option value="<?php echo $dept["id_dept"]; ?>"
+                                <?php if($dept["id_dept"] == $pimpin["dept"]) : ?>
+                                    selected
+                                <?php endif; ?>
+                        >
+                            <?php echo $dept["nama"]; ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </label>
+            <br>
+            <label for="foto">Foto:
+                <input name='foto' type="file">
             </label>
             <br>
             <input name='submit' type="submit" value='Submit'>
         </form>
+        <a href="../setting.php">
+            <button>Kembali</button>
+        </a>
     </body>
 </html>

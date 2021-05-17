@@ -37,10 +37,11 @@
                 <input name='password' type="text">
             </label>
             <br>
-            <a href="../setting.php">
-                <button>Kembali</button>
-            </a>
             <input name='submit' type="submit" value='Submit'>
         </form>
+        
+        <a href="../setting.php">
+            <button>Kembali</button>    
+        </a>
     </body>
 </html>

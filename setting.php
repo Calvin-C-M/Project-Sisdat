@@ -25,13 +25,14 @@
                 <button class='menu-button'>Departemen</button>
                 <button class='menu-button'>Pimpinan</button>
                 <button class='menu-button'>Staff</button>
+                <button class='menu-button'>Proker</button>
                 <button class='menu-button'>Admin</button>
             </nav>
         </header>
 
         <div class='table-data' id='komponen-utama' style='display:none'>
             <h3>Komponen</h3>
-            <a href="Tambah-Data/komponen.php">
+            <a href="Edit-Data/edit_komponen.php">
                 <button>Edit</button>
             </a>
             <div id='nama-organisasi'>
@@ -75,7 +76,7 @@
                     <img src="img/logo/<?php echo $dept["logo"]; ?>" width="90" height="90">
                     <p><?php echo $dept["nama"]; ?></p>
                     <div class='dept-operasi'>
-                        <a href="#">
+                        <a href="Edit-Data/hapus_data.php?pk=id_dept&key=<?php echo $dept["id_dept"]; ?>&table=departemen">
                             <button>Hapus</button>
                         </a>
                         <a href="Edit-Data/edit_dept.php?id_dept=<?php echo $dept["id_dept"]; ?>">
@@ -108,7 +109,7 @@
                             <img src="img/pengurus/<?php echo $pimpin["foto"]; ?>" width="90" height="120">
                             <p><?php echo $pimpin["nama"]; ?></p>
                             <div class='operasi-pimpinan'>
-                                <a href="#">
+                                <a href="Edit-Data/hapus_data.php?pk=npm&key=<?php echo $pimpin["npm"]; ?>&table=pimpinan">
                                     <button>Hapus</button>
                                 </a>
                                 <a href="Edit-Data/edit_pimpin.php?npm=<?php echo $pimpin["npm"]; ?>">
@@ -143,10 +144,46 @@
                             <img src="img/pengurus/<?php echo $staff["foto"]; ?>" width="90" height="120">
                             <p><?php echo $staff["nama"]; ?></p>
                             <div class='operasi-staff'>
-                                <a href="#">
+                                <a href="Edit-Data/hapus_data.php?pk=npm&key=<?php echo $staff["npm"]; ?>&table=staff">
                                     <button>Hapus</button>
                                 </a>
                                 <a href="Edit-Data/edit_staff.php?npm=<?php echo $staff["npm"]; ?>">
+                                    <button>Edit</button>
+                                </a>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <br>
+            <?php endforeach; ?>
+        </div>
+
+        <div class='table-data' id='proker' style='display:none'>
+            <h3>Proker</h3>
+            <br>
+            <?php foreach($departemen as $dept) : ?>
+                <?php
+                    $id_dept = $dept["id_dept"];
+                    $prokerDept = read("SELECT * FROM proker WHERE dept='$id_dept';");
+                ?>
+                <button class='show-departemen-proker'>
+                    <?php echo $dept["nama"]; ?>
+                </button>
+                <div class='departement-buat-proker' id='proker-<?php echo $dept["nama"] ?>' style='display: none;'>
+                    <p>
+                        <?php echo $dept["nama"]; ?>
+                    </p>
+                    <a href="Tambah-Data/proker.php?">
+                        <button>Tambah</button>
+                    </a>
+                    <?php foreach($prokerDept as $proker) : ?>
+                        <div class='proker'>
+                            <p><?php echo $proker["nama"]; ?></p>
+                            <div class='operasi-proker'>    
+                                <a href="/Edit-Data/hapus_data.php?pk=nama&key=<?php echo $proker['nama']; ?>&table=proker">
+                                    <button>Hapus</button>
+                                </a>
+                                <a href="Edit-Data/edit_proker.php?nama=<?php echo $proker["nama"]; ?>&id=<?php echo $proker["dept"]; ?>">
                                     <button>Edit</button>
                                 </a>
                             </div>

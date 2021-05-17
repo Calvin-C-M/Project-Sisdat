@@ -3,18 +3,36 @@ body{
 }
 
 main{
-    background-color: greenyellow;
+    display: flex;
+    flex-direction: column;
 }
 
 main header{
+    top: 0;
     background-color: aqua;
 }
 
+#main-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.content{ width: 100%; }
+
+#tentang-kami-div{ text-align: right; }
+
+.nav-button{
+    width: 150px;
+    height: 50px;
+
+    background-color: rgba(207,161,1,255);
+    border: none;
+    border-radius: 10px;
+}
+
 footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background-color: cadetblue;
     text-align: center;
     z-index: -1;
