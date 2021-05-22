@@ -80,7 +80,7 @@
         $dept = htmlspecialchars($data["dept"]);
 
         $query = "INSERT INTO proker 
-                VALUES ('$nama','$dept');";
+                  VALUES ('$nama','$dept');";
 
         mysqli_query($konek, $query);
 
@@ -91,21 +91,6 @@
         global $konek;
 
         $query = "DELETE FROM $table WHERE $pk = '$key';";
-
-        mysqli_query($konek, $query);
-
-        return mysqli_affected_rows($konek);
-    }
-
-    function edit_admin($data){
-        global $konek;
-
-        $username = $data["username"];
-        $password = htmlspecialchars($data["password"]);
-
-        $query = "UPDATE admin SET 
-                password='$password' 
-                WHERE username='$username';";
 
         mysqli_query($konek, $query);
 
@@ -225,6 +210,25 @@
 
         mysqli_query($konek, $query);
 
+        return mysqli_affected_rows($konek);
+    }
+
+    function edit_admin($data, $oldData){
+        global $konek;
+
+        $oldUsername = $oldData;
+
+        $username = $data["username"];
+        $password = $data["password"];
+
+        $query = "UPDATE admin SET
+                  username='$username',
+                  password='$password'
+                  WHERE username=$oldUsername;
+        ";
+
+        mysqli_query($konek, $query);
+    
         return mysqli_affected_rows($konek);
     }
 ?>

@@ -23,32 +23,52 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $dep["nama"]; ?></title>
+        <link rel="stylesheet" href="../styles/form.css">
     </head>
     <body>
         <header>
             <h2>Edit Departemen</h2>
         </header>
-        <form action="#" method="post" enctype="multipart/form-data">
-            <label for="id_dept">ID:
-                <input name='id_dept' type="number" value='<?php echo $dep["id_dept"]; ?>'>
-            </label>
-            <br>
-            <label for="nama">Nama:
-                <input name='nama' type="text" value='<?php echo $dep["nama"]; ?>'>
-            </label>
-            <br>
-            <label for="singkatan">Singkatan:
-                <input name='singkatan' type="text" value='<?php echo $dep["singkatan"]; ?>'>
-            </label>
-            <br>
-            <label for="logo">Logo:
-                <input name='logo' type="file">
-            </label>
+        <form id='form' action="#" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        <label for="id_dept">ID Departemen:</label>
+                    </td>
+                    <td>
+                        <input name='id_dept' type="number" value='<?php echo $dep["id_dept"]; ?>'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="nama">Nama:</label>
+                    </td>
+                    <td>
+                        <input name='nama' type="text" value='<?php echo $dep["nama"]; ?>'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="singkatan">Singakatan:</label>
+                    </td>
+                    <td>
+                        <input name='singkatan' type="text" value='<?php echo $dep["singkatan"]; ?>'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="logo">Logo: </label>
+                    </td>
+                    <td>
+                        <input name='logo' type="file">
+                    </td>
+                </tr>
+            </table>
             <br>
             <input name='submit' type="submit" value="Submit">
         </form>  
         <a href="../setting.php">
-            <button>Back</button>
+            <img id='arrow-back' src="../img/decor/arrow_back_white.png" alt="" width="40" height="40">
         </a>
     </body>
 </html>

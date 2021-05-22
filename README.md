@@ -6,7 +6,19 @@
 * Deani Puteri Virdiana (140810200059)
 
 ## Update Log
-Log 0.4
+### Log 0.5
+* Tambah animasi untuk beberapa komponen
+* Tambah fungsi hapus dan edit admin
+* Tambah halaman tambah proker
+* Update halaman utama, tentang kami, departemen, dan per departemen
+* Update navigation
+* Update halaman verif
+* Update fungsi proker
+* Update tampilan setting
+* Hapus file style tambah per setting, diganti menjadi file kesatuan style
+* Perbaikan beberapa fungsi yang tidak sesuai
+
+### Log 0.4
 * Tambah background
 * Tambah algoritma menambah file pada folder
 * Tambah div untuk data proker
@@ -15,7 +27,7 @@ Log 0.4
 * Update fungsi tambah, hapus, dan edit data
 * Update halaman utama
 
-Log 0.3
+### Log 0.3
 * Update halaman utama
 * Update fungsi hapus pada "func.php"
 * Update style "navigation"
@@ -31,7 +43,7 @@ Log 0.3
 * Tambah styling untuk halaman hapus, tambah dan edit
 * Tambah halaman menu departemen dan tentang kabinetnya
 
-Log 0.2
+### Log 0.2
 * Ditambahkan tabel "komponen"
 * Ditambahkan logic masuk ke halaman "tentang kami"
 * Update halaman setting
@@ -42,6 +54,6 @@ Log 0.2
 * Update Menu Visi Misi
 * Ditambahkan Menu Logo, Visi Misi, Ketua dan Wakil Ketua
 
-Log 0.1
+### Log 0.1
 * Update login logic
 * Update UI Menu Verifikasi

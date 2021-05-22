@@ -13,10 +13,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Logo <?php echo $organisasi["nama"]; ?> </title>
     </head>
-    <body>
-    <button id='open-button'><img src="../img/decor/open_button.png" width="40px" height="40px"></button>
+    <body style="background-color: rgb(0,26,59)">
+        <div id='options-nav'>
+            <button class='options-button' id='open-button'>
+                <img id='logo-open-button' src="../img/decor/open_button_white.png" width="40px" height="40px">
+            </button>
+
+            <button class='options-button' id='setting-button' onclick="location.href='../verif.php'">
+                <img src="../img/decor/admin_panel_white.png" width="40px" height="40px">
+            </button>
+        </div>
         <nav id='navbar' style='display: none'>
-            <button id='close-button'><img src="../img/decor/close_button.png" width="30px" height="30px"></button>
+            <button id='close-button'><img src="../img/decor/close_button_white.png" width="40px" height="40px"></button>
             <div id='title-nav'>
                 <a id='home' href="../index.php">
                     <img src="../img/logo/<?php echo $organisasi["logo"]; ?>" width="80px" height='80px'>
@@ -50,9 +58,6 @@
                             <?php endforeach; ?>
                         </ul>
                     </li>
-                    <li>
-                        <a id='setting' href="../verif.php">Setting</a>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -62,13 +67,17 @@
                     <?php echo $organisasi["nama"]; ?>
                 </h1>
             </header>
-            <h3>Logo</h3>
-            <img id='logo' src="../img/logo/<?php echo $organisasi["logo"]; ?>" width="500px" height="500px">
-            <div id='penjelasan'>
-                <h3>Makna Logo:</h3>
-                <p>
-                    <?php echo nl2br($organisasi["makna_logo"]); ?>
-                </p>
+            <div id='main-content'>
+                <div id='foto-logo'>
+                    <h3>Logo</h3>
+                    <img id='logo' src="../img/logo/<?php echo $organisasi["logo"]; ?>" width="500px" height="500px">
+                </div>
+                <div id='penjelasan'>
+                    <h3>Makna Logo:</h3>
+                    <p>
+                        <?php echo nl2br($organisasi["makna_logo"]); ?>
+                    </p>
+                </div>
             </div>
         </main>
     </body>

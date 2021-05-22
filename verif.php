@@ -43,10 +43,12 @@
                     <input class='login-input' name='password' type="password">
                 </label>
                 <br>
-                <button type='submit' name='submit'>Login</button>
+                <button id='submit-button' type='submit' name='submit'>Login</button>
             </form>
 
-            <a id='back-button' href="index.php">&lt&lt Home</a>
+            <a href="index.php">
+                <img id='back-button' src="img/decor/arrow_back.png" alt="" width="30" height="30">
+            </a>
         </div>
     </body>
 </html>

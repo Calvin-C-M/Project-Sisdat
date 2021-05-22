@@ -12,12 +12,18 @@
         <link rel="stylesheet" href="styles/navigation.css">
         <link rel="stylesheet" href="styles/menu_kami.css">
     </head>
-    <body>
-        <button id='open-button'>
-            <img src="img/decor/open_button.png" width="40px" height="40px">
-        </button>
+    <body style="background-image:url('img/decor/background-1-2.jpg'); background-size: cover;">
+        <div id='options-nav'>
+            <button class='options-button' id='open-button'>
+                <img id='logo-open-button' src="img/decor/open_button_white.png" width="40px" height="40px">
+            </button>
+
+            <button class='options-button' id='setting-button' onclick="location.href='verif.php'">
+                <img src="img/decor/admin_panel_white.png" width="40px" height="40px">
+            </button>
+        </div>
         <nav id='navbar' style='display: none'>
-            <button id='close-button'><img src="img/decor/close_button.png" width="30px" height="30px"></button>
+            <button id='close-button'><img src="img/decor/close_button_white.png" width="40px" height="40px"></button>
             <div id='title-nav'>
                 <a id='home' href="index.php">
                     <img src="img/logo/<?php echo $organisasi["logo"]; ?>" width="80px" height='80px'>
@@ -53,9 +59,6 @@
                             <?php endforeach; ?>
                         </ul>
                     </li>
-                    <li>
-                        <a id='setting' href="verif.php">Setting</a>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -67,22 +70,24 @@
                 </h1>
             </header>
 
-            <div id='visi-menu'>
-                <a href="Tentang-Kami/vismis.php">
-                    <button>Visi & Misi</button>
-                </a>
-            </div>
+            <div id='menu-nav'>
+                <div id='visi-menu'>
+                    <a href="Tentang-Kami/vismis.php">
+                        <button class='nav-button' id='left-button'>Visi & Misi</button>
+                    </a>
+                </div>
 
-            <div id='ketua-menu'>
-                <a href="Tentang-Kami/ketua.php">
-                    <button>Ketua & Wakil Ketua</button>
-                </a>
-            </div>
+                <div id='ketua-menu'>
+                    <a href="Tentang-Kami/ketua.php">
+                        <button class='nav-button' id='center-button'>Ketua & Wakil Ketua</button>
+                    </a>
+                </div>
 
-            <div id='logo-menu'>
-                <a href="Tentang-Kami/logo.php">
-                    <button>Logo</button>
-                </a>
+                <div id='logo-menu'>
+                    <a href="Tentang-Kami/logo.php">
+                        <button class='nav-button' id='right-button'>Logo</button>
+                    </a>
+                </div>
             </div>
         </main>
 

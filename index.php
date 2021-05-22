@@ -13,12 +13,19 @@
         <title>Main Menu</title>
     </head>
     <body style="background-image:url('img/decor/background-1.jpg'); background-size: cover;">
-        <button id='open-button'>
-            <img id='logo-open-button' src="img/decor/open_button_white.png" width="40px" height="40px">
-        </button>
+        <div id='options-nav'>
+            <button class='options-button' id='open-button'>
+                <img id='logo-open-button' src="img/decor/open_button_white.png" width="40px" height="40px">
+            </button>
+
+            <button class='options-button' id='setting-button' onclick="location.href='verif.php'">
+                <img src="img/decor/admin_panel_white.png" width="40px" height="40px">
+            </button>
+        </div>
+
         <nav id='navbar' style='display: none'>
             <button id='close-button'>
-                <img src="img/decor/close_button.png" width="40px" height="40px">
+                <img src="img/decor/close_button_white.png" width="40px" height="40px">
             </button>
             <div id='title-nav'>
                 <a id='home' href="index.php">
@@ -55,16 +62,13 @@
                             <?php endforeach; ?>
                         </ul>
                     </li>
-                    <li>
-                        <a id='setting' href="verif.php">Setting</a>
-                    </li>
                 </ul>
             </div>
         </nav>
 
-        <main id='main-section' style="margin-left: 65px;">
+        <main id='main-section' style="margin-left: 62px;">
             <header>
-                <h1>
+                <h1 style="margin-left: 10px;">
                     <?php echo $organisasi["nama"]; ?>
                 </h1>
             </header>
@@ -72,7 +76,7 @@
             <div id='main-content'>
                 <div class='content' id='tentang-kami-div'>
                     <a class='content-button' href="menu_tentang_kami.php">
-                        <button class='nav-button'>Tentang Kami</button>
+                        <button id='tentang-kami-button' class='nav-button'>Tentang Kami</button>
                     </a>
                 </div>
                 
@@ -82,16 +86,16 @@
 
                 <div class='content' id='departemen-nav'>
                     <a class='content-button' href="menu_departemen.php">
-                        <button class='nav-button'>Departemen</button>
+                        <button id='departemen-button' class='nav-button'>Departemen</button>
                     </a>
                 </div>
 
             </div>
 
-            <footer>
+            <!-- <footer>
                 <p>Created by Kelompok 10 Sistem Database</p>
                 <p>2021</p>
-            </footer>
+            </footer> -->
         </main>
         
         <script src='scripts/navigation.js'></script>

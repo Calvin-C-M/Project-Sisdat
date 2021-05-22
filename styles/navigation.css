@@ -1,11 +1,78 @@
+nav ul li{
+    list-style: none;
+    line-height: 50px;
+}
+
+nav ul li a{
+    display: block;
+}
+
+#options-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(1, 17, 41);
+    width: 70px;
+    height: 100%;
+}
+
+#open-button{ 
+    position: fixed; 
+    background-color: transparent;
+    border: none;
+    left: 8px;
+    top: 15px;
+}
+
+#setting-button{
+    position: fixed;
+    background-color: transparent;
+    border: none;
+    left: 8px;
+    top: 80px;
+}
+
+.options-button:hover{
+    transition: 500ms;
+    transform: translateX(3px);
+}
+
+.options-button{
+    transition: 500ms;
+    transform: translateX(-3px);
+}
+
+#close-button{
+    position: unset;
+    background-color: transparent;
+    border: none;
+    margin-left: 60px;
+}
+
+#close-button:hover{
+    transition: 500ms;
+    transform: translateX(-3px);
+}
+
+#close-button{
+    transition: 500ms;
+    transform: translateX(3px);
+}
+
 nav{
-    background-color: aliceblue;
+    background-color: rgb(1, 17, 41);
+    color: whitesmoke;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     line-height: 30px;
     overflow: scroll;
+}
+
+nav a{
+    color: whitesmoke;
 }
 
 #title-nav{
@@ -22,57 +89,3 @@ nav a{
     text-decoration: none;
 }
 
-#open-button{ 
-    position: fixed; 
-    background-color: transparent;
-    border: none;
-    top: 0;
-    left: 0;
-    bottom: 0;
-}
-
-#logo-open-button{
-    position: fixed;
-    top: 15px;
-    left: 15px;
-}
-
-#open-button:hover{
-    animation-name: open-button-hover;
-    animation-duration: 500ms;
-    animation-fill-mode: forwards;
-}
-
-#open-button{
-    animation-name: open-button-reverse;
-    animation-duration: 500ms;
-}
-
-@keyframes open-button-hover{
-    from{
-        transform: translate(0, 0);
-    }
-    to{
-        transform: translate(3px, 0px);
-    }
-}
-
-@keyframes open-button-reverse{
-    from{
-        transform: translate(3px, 0px);
-    }
-    to{
-        transform: translate(0,0);
-    }
-}
-
-#open-button:active{
-    transform: translateY(3px);
-}
-
-#close-button{
-    position: unset;
-    background-color: transparent;
-    border: none;
-    margin-left: 60px;
-}

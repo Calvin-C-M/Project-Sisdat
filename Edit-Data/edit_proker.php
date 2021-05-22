@@ -30,34 +30,46 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $namaProker; ?></title>
+        <link rel="stylesheet" href="../styles/form.css">
     </head>
     <body>
         <header>
             <h2>Edit Proker</h2>
         </header>
         <form action="#" method='post'>
-            <label for="nama">Nama Proker:
-                <input name='nama' type="text" value='<?php echo $namaProker ?>'>
-            </label>
-            <br>
-            <label for="dept">Departemen:
-                <select name="dept" id="edit-departemen-proker">
-                    <?php foreach($departemen as $dep) : ?>
-                        <option value="<?php echo $dep["id_dept"] ?>"
-                                <?php if($dep["id_dept"] == $dept) : ?>
-                                    selected
-                                <?php endif; ?>
-                        >
-                            <?php echo $dep["nama"]; ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
+            <table>
+                <tr>
+                    <td>
+                        <label for="nama">Nama Proker:</label>
+                    </td>
+                    <td>
+                        <input name='nama' type="text" value='<?php echo $namaProker ?>'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="dept">Departemen:</label>
+                    </td>
+                    <td>
+                    <select name="dept" id="edit-departemen-proker">
+                        <?php foreach($departemen as $dep) : ?>
+                            <option value="<?php echo $dep["id_dept"] ?>"
+                                    <?php if($dep["id_dept"] == $dept) : ?>
+                                        selected
+                                    <?php endif; ?>
+                            >
+                                <?php echo $dep["nama"]; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    </td>
+                </tr>
+            </table>
             <br>
             <input name='submit' type="submit" value='Submit'>
         </form>
         <a href="../setting.php">
-            <button>Kembali</button>
+            <img id='arrow-back' src="../img/decor/arrow_back_white.png" alt="" width="40" height="40">
         </a>
     </body>
 </html>

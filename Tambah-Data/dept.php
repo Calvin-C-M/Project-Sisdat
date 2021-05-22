@@ -34,34 +34,54 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tambah Departemen</title>
-        <link rel="stylesheet" href="../styles/tambah_dept.css">
+        <link rel="stylesheet" href="../styles/form.css">
     </head>
     <body>
         <header>
             <h2>Tambah Departemen</h2>
         </header>
-        <form  id='tambah-form' action="dept.php" method="POST" enctype="multipart/form-data">
-            <label for="id_dept">ID Departemen:
-                <input name='id_dept' type="number">
-            </label>
-            <br>
-            <label for="nama">Nama:
-                <input name='nama' type="text">
-            </label>
-            <br>
-            <label for="singkatan">Singkatan:
-                <input name="singkatan" type="text">
-            </label>
-            <br>
-            <label for="logo">Logo:
-                <input name='logo' type="file">
-            </label>
+        <form id='form' action="dept.php" method="POST" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        <label for="id_dept">ID Departemen:</label>
+                    </td>
+                    <td>
+                        <input name='id_dept' type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="nama">Nama:</label>
+                    </td>
+                    <td>
+                        <input name='nama' type="text">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label for="singkatan">Singkatan</label>
+                    </td>
+                    <td>
+                        <input name="singkatan" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="logo">Logo:</label>
+                    </td>
+                    <td>
+                        <input name='logo' type="file">
+                    </td>
+                </tr>
+            </table>
             <br>
             <input name='submit' type="submit" value="Submit">
         </form>
 
         <a href="../setting.php">
-            <button>Kembali</button>
+            <img id='arrow-back' src="../img/decor/arrow_back_white.png" alt="" width="40" height="40">
         </a>
     </body>
 </html>

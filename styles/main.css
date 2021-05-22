@@ -8,8 +8,10 @@ main{
 }
 
 main header{
+    position: absolute;
     top: 0;
-    background-color: aqua;
+    /* background-color: rgb(0,26,59); */
+    color: whitesmoke;
 }
 
 #main-content{
@@ -17,6 +19,7 @@ main header{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
 }
 
 .content{ width: 100%; }
@@ -30,6 +33,29 @@ main header{
     background-color: rgba(207,161,1,255);
     border: none;
     border-radius: 10px;
+    box-shadow: 5px 5px rgb(121, 95, 1);
+
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+.nav-button:active{
+    box-shadow: 3px 4px rgb(70, 55, 0);
+    transform: translateX(3px);
+}
+
+.nav-button:hover{
+    transition: 300ms;
+    background-color: rgb(189, 148, 0);
+}
+
+#tentang-kami-button{
+    box-shadow: -5px 5px rgb(121, 95, 1);
+}
+
+#tentang-kami-button:active{
+    box-shadow: -3px 4px rgb(70, 55, 0);
+    transform: translateX(-3px);
 }
 
 footer{

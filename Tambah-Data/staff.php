@@ -18,7 +18,7 @@
             else{
                 echo "
                     <script>
-                        alert('Data tidak dapat ditambahkan');
+                        alert('Foto tidak dapat ditambahkan');
                     </script>
                 ";
             }
@@ -33,33 +33,62 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tambah Staff</title>
+        <link rel="stylesheet" href="../styles/form.css">
     </head>
     <body>
         <header>
-        <h2>Tambah Staff</h2>
+            <h2>Tambah Staff</h2>
         </header> 
-        <form action="staff.php" method='post' enctype="multipart/form-data">
-            <label for="nama">Nama:
-                <input name='nama' type="text">
-            </label>
+        <form id='form' action="staff.php" method='post' enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        <label for="nama">Nama:</label>
+                    </td>
+                    <td>
+                        <input name='nama' type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="npm">NPM:</label>
+                    </td>
+                    <td>
+                        <input name='npm' type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="dept">Departemen:</label>
+                    </td>
+                    <td>
+                        <select name="dept" id="">
+                            <?php foreach($departemen as $dept) : ?>
+                                <option value="<?php echo $dept['id_dept']; ?>">
+                                    <?php echo $dept["nama"]; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>                    
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="foto">Foto:</label>
+                    </td>
+                    <td>
+                        <input name='foto' type="file">
+                    </td>
+                </tr>
+            </table>
             <br>
-            <label for="npm">NPM:
-                <input name='npm' type="text">
-            </label>
-            <br>
-            <label for="dept">Departemen:
-                <input name='dept' type="text">
-            </label>
-            <br>
-            <label for="foto">Foto:
-                <input name='foto' type="file">
-            </label>
+            <input name='submit' type="submit" value="Submit">
+
             <br>
             <input name='submit' type="submit" value="Submit">
         </form>
 
         <a href="../setting.php">
-            <button>Kembali</button>
+            <img id='arrow-back' src="../img/decor/arrow_back_white.png" alt="" width="40" height="40">
         </a>
     </body>
 </html>

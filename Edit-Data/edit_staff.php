@@ -24,42 +24,36 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?php echo $staff["nama"]; ?></title>
+        <link rel="stylesheet" href="../styles/form.css">
     </head>
     <body>
         <header>
             <h2>Edit Staff</h2>
         </header> 
         <form action="#" method='post' enctype="multipart/form-data">
-            <label for="npm">NPM:
-                <input name='npm' type="text" value='<?php echo $staff["npm"]; ?>'>
-            </label>
-            <br>
-            <label for="nama">Nama:
-                <input name='nama' type="text" value='<?php echo $staff["nama"]; ?>'>
-            </label>
-            <br>
-            <label for="dept">Departemen:
-                <select name="dept" id="edit-departemen-staff">
-                    <?php foreach($departemen as $dept) : ?>
-                        <option value="<?php echo $dept["id_dept"]; ?>"
-                                <?php if($dept["id_dept"] == $staff["dept"]) : ?>
-                                    selected
-                                <?php endif; ?>
-                        >
-                            <?php echo $dept["nama"]; ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
-            <br>
-            <label for="foto">Foto:
-                <input name='foto' type="file">
-            </label>
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
             <br>
             <input name='submit' type="submit" value='Submit'>
         </form>
         <a href="../setting.php">
-            <button>Kembali</button>
+            <img id='arrow-back' src="../img/decor/arrow_back_white.png" alt="" width="40" height="40">
         </a>
     </body>
 </html>
